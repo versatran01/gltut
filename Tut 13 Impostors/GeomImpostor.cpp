@@ -223,7 +223,7 @@ void CreateMaterials()
 	ubArray[2].specularShininess = 0.3f;
 
 	ubArray[3].diffuseColor = glm::vec4(0.803f, 0.709f, 0.15f, 1.0f);
-	ubArray[3].specularColor = glm::vec4(0.803f, 0.709f, 0.15f, 1.0f) * 0.75;
+	ubArray[3].specularColor = glm::vec4(0.803f, 0.709f, 0.15f, 1.0f) * 0.75f;
 	ubArray[3].specularShininess = 0.18f;
 
 	glGenBuffers(1, &g_materialArrayUniformBuffer);

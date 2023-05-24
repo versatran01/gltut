@@ -58,7 +58,7 @@ namespace glutil
 		{}
 
 		/**
-		\name Stack Maintanence Functions
+		\name Stack Maintainence Functions
 
 		These functions maintain the matrix stack. You must take care not to underflow or overflow the stack.
 		**/

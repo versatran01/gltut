@@ -254,7 +254,7 @@ void CreateMaterials()
 	ubArray[MTL_BLUE_SHINY] = mtl;
 
 	mtl.diffuseColor = glm::vec4(0.803f, 0.709f, 0.15f, 1.0f);
-	mtl.specularColor = glm::vec4(0.803f, 0.709f, 0.15f, 1.0f) * 0.75;
+	mtl.specularColor = glm::vec4(0.803f, 0.709f, 0.15f, 1.0f) * 0.75f;
 	mtl.specularShininess = 0.18f;
 	ubArray[MTL_GOLD_METAL] = mtl;
 
