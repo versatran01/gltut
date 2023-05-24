@@ -22,9 +22,7 @@ target_include_directories(glimg PUBLIC glimg/include)
 target_link_libraries(glimg PRIVATE glload)
 
 # glutil
-find_package(glm REQUIRED)
 file(GLOB glutil_SRCS glutil/source/*.cpp)
 add_library(glutil STATIC ${glutil_SRCS})
-target_include_directories(glutil PUBLIC glutil/include)
+target_include_directories(glutil PUBLIC glutil/include glm)
 target_link_libraries(glutil PRIVATE glimg glload)
-target_link_libraries(glutil PUBLIC glm::glm)
