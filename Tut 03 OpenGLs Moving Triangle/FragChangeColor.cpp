@@ -37,15 +37,15 @@ const float vertexPositions[] = {
 	-0.25f, -0.25f, 0.0f, 1.0f,
 };
 
-GLuint positionBufferObject;
+GLuint position_buffer_obj;
 GLuint vao;
 
 
 void InitializeVertexBuffer()
 {
-	glGenBuffers(1, &positionBufferObject);
+	glGenBuffers(1, &position_buffer_obj);
 
-	glBindBuffer(GL_ARRAY_BUFFER, positionBufferObject);
+	glBindBuffer(GL_ARRAY_BUFFER, position_buffer_obj);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertexPositions), vertexPositions, GL_STREAM_DRAW);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
@@ -72,7 +72,7 @@ void display()
 
 	glUniform1f(elapsedTimeUniform, glutGet(GLUT_ELAPSED_TIME) / 1000.0f);
 
-	glBindBuffer(GL_ARRAY_BUFFER, positionBufferObject);
+	glBindBuffer(GL_ARRAY_BUFFER, position_buffer_obj);
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, 0);
 

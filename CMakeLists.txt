@@ -9,6 +9,8 @@ project(AllTutorials)
 set(OpenGL_GL_PREFERENCE GLVND)
 find_package(OpenGL REQUIRED)
 
+find_package(fmt REQUIRED)
+
 add_subdirectory(glsdk)
 add_subdirectory(framework)
 
@@ -16,17 +18,18 @@ function(add_tutorial base_dir tgt_name)
     set(sources ${ARGN})
     list(TRANSFORM sources PREPEND "${base_dir}/")
     add_executable(${tgt_name} ${sources})
-    target_link_libraries(${tgt_name} PRIVATE framework)
+    target_link_libraries(${tgt_name} PRIVATE framework fmt::fmt)
 endfunction()
 
-## copy all data files to the build directory
+# # copy all data files to the build directory
 file(COPY "data" DESTINATION "${CMAKE_BINARY_DIR}")
 file(GLOB data_dirs "Tut*/data")
+
 foreach(data_dir ${data_dirs})
     file(COPY "${data_dir}" DESTINATION "${CMAKE_BINARY_DIR}")
 endforeach()
 
-## Tutorials
+# # Tutorials
 add_tutorial("Tut 01 Hello Triangle" "Tut01" "Tut1.cpp")
 
 add_tutorial("Tut 02 Playing with Colors" "Tut02FragPosition" "FragPosition.cpp")
@@ -89,7 +92,7 @@ add_tutorial("Tut 15 Many Images" "Tut15ManyImages" "ManyImages.cpp")
 
 add_tutorial("Tut 16 Gamma and Textures" "Tut16GammaRamp" "GammaRamp.cpp")
 add_tutorial("Tut 16 Gamma and Textures" "Tut16GammaCheckers" "GammaCheckers.cpp")
-add_tutorial("Tut 16 Gamma and Textures" "Tut16GammaLandscape"	"GammaLandscape.cpp" "LightEnv.cpp")
+add_tutorial("Tut 16 Gamma and Textures" "Tut16GammaLandscape" "GammaLandscape.cpp" "LightEnv.cpp")
 
 add_tutorial("Tut 17 Spotlight on Textures" "Tut17DoubleProjection" "DoubleProjection.cpp")
 add_tutorial("Tut 17 Spotlight on Textures" "Tut17ProjectedLight" "ProjectedLight.cpp")
